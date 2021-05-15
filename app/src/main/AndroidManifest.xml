@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.vibechecker">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/vibecheck"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/vibecheck"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.VibeChecker">
+        <activity android:name=".InitActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LoadingActivity"
+            android:label="loading_activity"/>
+        <activity android:name=".ResultActivity"
+            android:theme="@style/Theme.VibeChecker"
+            android:label="result_activity"/>
+        <activity android:name=".VibeListActivity"
+            android:theme="@style/Theme.VibeChecker.ActionBar"
+            android:label="@string/app_name">
+        </activity>
+    </application>
+
+</manifest>

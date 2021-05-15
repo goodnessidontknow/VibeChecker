@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Vibe Checker</string>
+    <string name="greetings">Welcome to the Vibe Checker</string>
+    <string name="as_seen_on">As seen on</string>
+    <string name="check_your_vibe">Check your vibe</string>
+    <string name="checking_vibe">Checking vibe</string>
+    <string name="check_again">Check again</string>
+    <string name="view_previous">View Previous Checks</string>
+    <string name="see_results">See results</string>
+    <string name="vibe_ready">Your vibe has been calculated</string>
+    <string name="no_vibe_checks">No previous vibe checks</string>
+    <string name="vibe_help">How to boost your vibe</string>
+    <string name="vibe_help_title">Boosting your vibe</string>
+    <string name="vibe_help_message1">There are plenty of ways for you to boost your vibe. Some common examples include:</string>
+    <string name="vibe_help_message2">Covering yourself in oil</string>
+    <string name="vibe_help_message3">Watch Bakemonogatari</string>
+    <string name="vibe_help_message4">Learn Thai</string>
+    <string name="vibe_help_message5">Buy a Cybertruck</string>
+    <string name="vibe_help_message6">Listen to some Chief Keef</string>
+    <string name="vibe_help_message7">Go to bed on time</string>
+</resources>

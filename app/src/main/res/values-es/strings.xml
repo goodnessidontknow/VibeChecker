@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">La Revisador de Vibe</string>
+    <string name="greetings">Bienvenido a la Revisador de Vibe</string>
+    <string name="as_seen_on">Como se ve en</string>
+    <string name="check_your_vibe">Revisa ya</string>
+    <string name="checking_vibe">Revisando su vibe</string>
+    <string name="check_again">Revisa una otra vez</string>
+    <string name="view_previous">Ve revisas anteriores</string>
+    <string name="see_results">Ve resultados</string>
+    <string name="vibe_ready">Su vibe se ha calculado</string>
+    <string name="no_vibe_checks">No hay revisas de vibe anteriores</string>
+    <string name="vibe_help">Cómo levantar a su vibe</string>
+    <string name="vibe_help_title">Levantando su vibe</string>
+    <string name="vibe_help_message3">Mira Bakemonogatari</string>
+    <string name="vibe_help_message1">Hay muchas maneras para levantar su vibe. Aquí están jemplos comunes:</string>
+    <string name="vibe_help_message4">Aprende tailandés</string>
+    <string name="vibe_help_message5">Compra un Cybertruck</string>
+    <string name="vibe_help_message6">Escucha a Chief Keef</string>
+    <string name="vibe_help_message7">Acóstase a tiempo</string>
+    <string name="vibe_help_message2">Cúbrete con petróleo</string>
+</resources>
