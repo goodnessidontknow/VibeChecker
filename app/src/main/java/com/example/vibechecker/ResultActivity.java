@@ -3,9 +3,11 @@ package com.example.vibechecker;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,7 +42,6 @@ public class ResultActivity extends AppCompatActivity {
         mScoreDisplay.setTextColor(getScoreColour(mScore));
         mScoreDisplay.setText(mScore.toString());
 
-
         mCheckAgain = findViewById(R.id.check_again);
         mCheckAgain.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), LoadingActivity.class);
@@ -62,14 +63,23 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    public static int getScoreColour(int mScore) {
+    public int getScoreColour(int mScore) {
         if (mScore > 67) {
+            makeToast(R.string.results_green);
             return GREEN;
         } else if (mScore > 34) {
+            makeToast(R.string.results_yellow);
             return YELLOW;
         } else {
+            makeToast(R.string.results_red);
             return RED;
         }
+    }
+
+    public void makeToast(int text) {
+        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.TOP | Gravity.CENTER_VERTICAL,0,0);
+        toast.show();
     }
 
 }

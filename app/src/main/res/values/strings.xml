@@ -18,4 +18,7 @@
     <string name="vibe_help_message5">Buy a Cybertruck</string>
     <string name="vibe_help_message6">Listen to some Chief Keef</string>
     <string name="vibe_help_message7">Go to bed on time</string>
+    <string name="results_green">Vibe optimal!</string>
+    <string name="results_yellow">Vibe questionable</string>
+    <string name="results_red">Vibe is weak</string>
 </resources>

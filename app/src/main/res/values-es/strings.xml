@@ -19,4 +19,7 @@
     <string name="vibe_help_message6">Escucha a Chief Keef</string>
     <string name="vibe_help_message7">Acóstase a tiempo</string>
     <string name="vibe_help_message2">Cúbrete con petróleo</string>
+    <string name="results_green">¡Vibe óptimo!</string>
+    <string name="results_yellow">Vibe dudoso</string>
+    <string name="results_red">Vibe débil</string>
 </resources>
