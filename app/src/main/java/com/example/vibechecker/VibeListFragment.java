@@ -2,6 +2,7 @@ package com.example.vibechecker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,6 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.text.DateFormat;
 import java.util.List;
+
+import static com.example.vibechecker.ResultActivity.*;
 
 public class VibeListFragment extends Fragment {
 
@@ -93,9 +97,24 @@ public class VibeListFragment extends Fragment {
             mVibeCheck = vibeCheck;
             int score = mVibeCheck.getScore();
             mTitleTextView.setText(Integer.toString(score));
-            mTitleTextView.setTextColor(ResultActivity.getScoreColour(score));
+
+            if (score > 67) {
+                mTitleTextView.setTextColor(GREEN);
+            } else if (score > 34) {
+                mTitleTextView.setTextColor(YELLOW);
+            } else {
+                mTitleTextView.setTextColor(RED);
+            }
+
             mDateTextView.setText(DateFormat.getDateInstance().format(mVibeCheck.getDate()));
-            mDateTextView.setTextColor(ResultActivity.getScoreColour(score));
+
+            if (score > 67) {
+                mDateTextView.setTextColor(GREEN);
+            } else if (score > 34) {
+                mDateTextView.setTextColor(YELLOW);
+            } else {
+                mDateTextView.setTextColor(RED);
+            }
         }
     }
 

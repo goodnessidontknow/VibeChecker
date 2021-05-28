@@ -1,5 +1,6 @@
 package com.example.vibechecker;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -27,10 +28,10 @@ public class ResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        mScore = (int) Math.floor(Math.random() * 101);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-        mScore = (int) Math.floor(Math.random() * 101);
 
         VibeCheckLab.get(getApplicationContext()).addVibeCheck(new VibeCheck(mScore));
 
@@ -39,8 +40,8 @@ public class ResultActivity extends AppCompatActivity {
         mScale.setMax(100);
 
         mScoreDisplay = findViewById(R.id.score_display);
-        mScoreDisplay.setTextColor(getScoreColour(mScore));
-        mScoreDisplay.setText(mScore.toString());
+        mScoreDisplay.setText(String.valueOf(mScore));
+        mScoreDisplay.setTextColor(getScoreParams(this));
 
         mCheckAgain = findViewById(R.id.check_again);
         mCheckAgain.setOnClickListener(v -> {
@@ -63,22 +64,22 @@ public class ResultActivity extends AppCompatActivity {
 
     }
 
-    public int getScoreColour(int mScore) {
+    private int getScoreParams(Context context) {
         if (mScore > 67) {
-            makeToast(R.string.results_green);
+            makeToast(getString(R.string.results_green), context);
             return GREEN;
         } else if (mScore > 34) {
-            makeToast(R.string.results_yellow);
+            makeToast(getString(R.string.results_yellow), context);
             return YELLOW;
         } else {
-            makeToast(R.string.results_red);
+            makeToast(getString(R.string.results_red), context);
             return RED;
         }
     }
 
-    public void makeToast(int text) {
-        Toast toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP | Gravity.CENTER_VERTICAL,0,0);
+    private void makeToast(String p, Context context) {
+        Toast toast = Toast.makeText(getApplicationContext(), p, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_VERTICAL, 0, 0);
         toast.show();
     }
 
