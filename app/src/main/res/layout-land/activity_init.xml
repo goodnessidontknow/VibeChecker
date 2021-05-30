@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/greetings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:padding="40dp"
+        android:text="@string/greetings"
+        android:textAlignment="center"
+        android:textSize="40sp"/>
+
+    <TextView
+        android:id="@+id/review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="75dp"
+        android:text="@string/as_seen_on"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:id="@+id/news1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center_horizontal|center"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:paddingHorizontal="15dp"
+            android:src="@drawable/cnn" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:paddingHorizontal="15dp"
+            android:src="@drawable/cbs" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/news2"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="75dp"
+        android:layout_gravity="center|center_horizontal"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:paddingHorizontal="15dp"
+            android:src="@drawable/cbc" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:paddingHorizontal="15dp"
+            android:src="@drawable/kct" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/check_vibe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:text="@string/check_your_vibe"/>
+</FrameLayout>

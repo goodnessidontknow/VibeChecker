@@ -2,6 +2,7 @@ package com.example.vibechecker;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -19,6 +20,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.gson.Gson;
+
 import java.text.DateFormat;
 import java.util.List;
 
@@ -26,17 +29,33 @@ import static com.example.vibechecker.ResultActivity.*;
 
 public class VibeListFragment extends Fragment {
 
+    private static final String VIBE_CHECK = "vibe_check";
+    private static final String TAG = "VibeListFragment";
     private RecyclerView mVibeRecyclerView;
     private VibeAdapter mAdapter;
     private Button mButton;
-    private int mLastClick = -1;
     private VibeCheckLab mVibeCheckLab;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        if (savedInstanceState != null) {
+            String json = savedInstanceState.getString(VIBE_CHECK);
+            if(!json.isEmpty()) {
+                Gson gson = new Gson();
+                mVibeCheckLab = gson.fromJson(json, VibeCheckLab.class);
+            }        }
         mVibeCheckLab = VibeCheckLab.get(getActivity());
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        Log.i(TAG, "onSaveInstanceState");
+        Gson gson = new Gson();
+        String json = gson.toJson(mVibeCheckLab);
+        savedInstanceState.putString(VIBE_CHECK, json);
     }
 
     @Override
