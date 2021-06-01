@@ -2,15 +2,12 @@ package com.example.vibechecker;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.webkit.WebChromeClient;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.MediaController;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -18,7 +15,13 @@ import androidx.fragment.app.DialogFragment;
 
 public class HelpDialogFragment extends DialogFragment {
 
-    private WebView webView;
+    private TextView link1;
+    private TextView link2;
+    private TextView link3;
+
+    private final String LINK1 = "https://www.amazon.com/dp/B000DWMYQ8/ref=cm_sw_em_r_mt_dp_21VFHD1S7Y7YB2X4JB2P";
+    private final String LINK2 = "https://www.amazon.com/dp/B07KWNH1S1/ref=cm_sw_em_r_mt_dp_9MTYQ3H7YWJDSPS4PDH6";
+    private final String LINK3 = "https://www.amazon.com/Personalized-Doctorate-Certificate-Customized-Christmas/dp/B00PM1VFQU/ref=sr_1_1?dchild=1&keywords=fake+college+certificate&qid=1622507436&s=movies-tv&sr=1-1-catcorr";
 
     public static HelpDialogFragment newInstance() {
         return new HelpDialogFragment();
@@ -31,39 +34,30 @@ public class HelpDialogFragment extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         View view = inflater.inflate(R.layout.video, null);
 
-        webView = view.findViewById(R.id.webView);
+        link1 = view.findViewById(R.id.link1);
+        link1.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK1));
+            startActivity(intent);
+        });
 
-        MediaController mediaController = new MediaController(getContext());
-        mediaController.setAnchorView(webView);
+        link2 = view.findViewById(R.id.link2);
+        link2.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK2));
+            startActivity(intent);
+        });
 
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setPluginState(WebSettings.PluginState.ON);
-        webView.loadUrl("https://www.youtube.com/watch?v=ARezg1D9Zd0?autoplay=1&vq=small");
-        webView.setWebChromeClient(new WebChromeClient());
+        link3 = view.findViewById(R.id.link3);
+        link3.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(LINK3));
+            startActivity(intent);
+        });
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.CustomDialog);
         builder.setTitle(R.string.vibe_help_title)
-                .setMessage(format( R.string.vibe_help_message1,
-                                    R.string.vibe_help_message2,
-                                    R.string.vibe_help_message3,
-                                    R.string.vibe_help_message4,
-                                    R.string.vibe_help_message5,
-                                    R.string.vibe_help_message6,
-                                    R.string.vibe_help_message7))
                 .setView(view)
                 .setPositiveButton(android.R.string.ok, (dialog, which) -> dismiss());
         return builder.create();
 
     }
 
-    private CharSequence format(int... strings) {
-        String string = getString(strings[0]) + "\n\n";
-        for (int i = 1; i < strings.length; i++) {
-            string = string + "\t- " + getString(strings[i]);
-            if (i != strings.length - 1) {
-                string = string + "\n";
-            }
-        }
-        return string;
-    }
 }

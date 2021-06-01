@@ -21,4 +21,11 @@
     <string name="results_green">Vibe optimal!</string>
     <string name="results_yellow">Vibe questionable</string>
     <string name="results_red">Vibe is weak</string>
+    <string name="link_1">Chicken Little DVD</string>
+    <string name="link_2">"Eat, Sleep, Game, Repeat" shirt</string>
+    <string name="link_3">Forged doctorate degree</string>
+    <string name="link_0">Below are some internet links to products proven to drastically improve your vibe:</string>
+    <string name="tips">Tips:</string>
+    <string name="products">Products:</string>
+    <string name="placeholder" translatable="false"><![CDATA[&e0]]></string>
 </resources>

@@ -23,10 +23,6 @@ public class VibeCheck {
         return mId;
     }
 
-    public void setId(UUID id) {
-        mId = id;
-    }
-
     public Date getDate() {
         return mDate;
     }

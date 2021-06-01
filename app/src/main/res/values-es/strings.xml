@@ -22,4 +22,10 @@
     <string name="results_green">¡Vibe óptimo!</string>
     <string name="results_yellow">Vibe dudoso</string>
     <string name="results_red">Vibe débil</string>
+    <string name="link_1">Pequeño Pollito DVD</string>
+    <string name="link_2">\"Comer, Dormir, Jugar Videojuegos, Repetir\" camisa</string>
+    <string name="link_3">Doctorado falso</string>
+    <string name="link_0">Debajo son enlaces de productos probados para majorar su vibe:</string>
+    <string name="tips">Consejos:</string>
+    <string name="products">Productos:</string>
 </resources>

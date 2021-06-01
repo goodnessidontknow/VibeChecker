@@ -3,9 +3,11 @@ package com.example.vibechecker;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -19,11 +21,14 @@ public class ResultActivity extends AppCompatActivity {
 
     private static final String TAG = "ResultActivity";
     private static final String SCORE = "score";
-    public static int GREEN = Color.rgb(102,204,0);
-    public static int YELLOW = Color.rgb(230, 191, 0);
-    public static int RED = Color.RED;
+    public static final int GREEN = Color.rgb(102,204,0);
+    public static final int YELLOW = Color.rgb(230, 191, 0);
+    public static final int RED = Color.RED;
+    private static final String TOASTED = "toasted";
 
     private static Integer mScore;
+
+    private boolean mToasted;
 
     private ProgressBar mScale;
     private TextView mScoreDisplay;
@@ -36,6 +41,7 @@ public class ResultActivity extends AppCompatActivity {
 
         if (savedInstanceState != null) {
             mScore = savedInstanceState.getInt(SCORE, 0);
+            mToasted = savedInstanceState.getBoolean(TOASTED);
         } else {
             mScore = (int) Math.floor(Math.random() * 101);
             VibeCheckLab.get(getApplicationContext()).addVibeCheck(new VibeCheck(mScore));
@@ -75,26 +81,32 @@ public class ResultActivity extends AppCompatActivity {
         super.onSaveInstanceState(savedInstanceState);
         Log.i(TAG, "onSaveInstanceState");
         savedInstanceState.putInt(SCORE, mScore);
+        savedInstanceState.putBoolean(TOASTED, mToasted);
     }
 
     private int getScoreParams(Context context, boolean savedInstanceState) {
         if (mScore > 67) {
-            makeToast(getString(R.string.results_green), context, savedInstanceState);
+            makeToast(getString(R.string.results_green), context);
             return GREEN;
         } else if (mScore > 34) {
-            makeToast(getString(R.string.results_yellow), context, savedInstanceState);
+            makeToast(getString(R.string.results_yellow), context);
             return YELLOW;
         } else {
-            makeToast(getString(R.string.results_red), context, savedInstanceState);
+            makeToast(getString(R.string.results_red), context);
             return RED;
         }
     }
 
-    private void makeToast(String p, Context context, boolean savedInstanceState) {
-        if (savedInstanceState) {
+    private void makeToast(String p, Context context) {
+        if (!mToasted) {
             Toast toast = Toast.makeText(getApplicationContext(), p, Toast.LENGTH_SHORT);
             toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_VERTICAL, 0, 0);
+            View view = toast.getView();
+            view.getBackground().setColorFilter(getResources().getColor(R.color.white), PorterDuff.Mode.SRC_IN);
+            TextView text = view.findViewById(android.R.id.message);
+            text.setTextColor(getResources().getColor(R.color.black));
             toast.show();
+            mToasted = true;
         }
     }
 

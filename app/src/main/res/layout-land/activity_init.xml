@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/greetings"
@@ -11,7 +12,8 @@
         android:padding="40dp"
         android:text="@string/greetings"
         android:textAlignment="center"
-        android:textSize="40sp"/>
+        android:textSize="40sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/review"
@@ -20,7 +22,8 @@
         android:layout_gravity="center"
         android:layout_marginBottom="75dp"
         android:text="@string/as_seen_on"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textColor="@color/white"/>
 
     <LinearLayout
         android:id="@+id/news1"
